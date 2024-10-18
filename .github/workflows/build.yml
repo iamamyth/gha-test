@@ -4,5 +4,6 @@ jobs:
   build-mac:
     runs-on: macOS-latest
     steps:
+    - uses: actions/checkout@v4
     - uses: ./.github/actions/set-make-job-count
     - run: echo ${{ env.MAKE_JOB_COUNT }}
