@@ -4,4 +4,4 @@ jobs:
   build-mac:
     runs-on: macOS-latest
     steps:
-    - run: printf '1\n%s\n%s' $(( $(sysctl -n hw.memsize) * 4 / (1073741824 * 11) )) $(sysctl -n hw.logicalcpu) | grep -v '^0$' | sort -n | head -n1
+    - run: printf '%s\n%s' $(( $(sysctl -n hw.memsize) * 4 / (1073741824 * 11) )) $(sysctl -n hw.logicalcpu) | sort -n | head -n1 | sed -e 's/^0$/1/'
