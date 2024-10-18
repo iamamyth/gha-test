@@ -4,4 +4,4 @@ jobs:
   build-mac:
     runs-on: macOS-latest
     steps:
-    - run: echo $(( $(sysctl -n hw.memsize) * 4 / (1073741824 * 11) ))
+    - run: printf '%s\n%s' $(( $(sysctl -n hw.memsize) * 4 / (1073741824 * 11) )) $(nproc) | grep -v '^0$' | sort -n | head -n1
