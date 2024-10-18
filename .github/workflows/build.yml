@@ -4,5 +4,5 @@ jobs:
   build-mac:
     runs-on: macOS-latest
     steps:
-    - sysctl -a
-    - sysctl -n hw.memsize
+    - run: sysctl -a
+    - run: sysctl -n hw.memsize
