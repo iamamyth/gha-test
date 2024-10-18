@@ -1,0 +1,8 @@
+on: push
+
+jobs:
+  build-mac:
+    runs-on: macOS-latest
+    steps:
+    - sysctl -a
+    - sysctl -n hw.memsize
