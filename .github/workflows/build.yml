@@ -4,4 +4,6 @@ jobs:
   build-mac:
     runs-on: macOS-latest
     steps:
-    - run: printf '%s\n%s' $(( $(sysctl -n hw.memsize) * 4 / (1073741824 * 11) )) $(sysctl -n hw.logicalcpu) | sort -n | head -n1 | sed -e 's/^0$/1/'
+    - id: make-job-count
+      uses: ./.github/actions/set-make-job-count
+    - run: echo ${{ steps.make-job.count.jobs }}
