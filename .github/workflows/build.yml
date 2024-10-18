@@ -4,5 +4,4 @@ jobs:
   build-mac:
     runs-on: macOS-latest
     steps:
-    - run: sysctl -a
-    - run: sysctl -n hw.memsize
+    - run: echo $(( $(sysctl -n hw.memsize) * 4 / (1073741824 * 11) ))
