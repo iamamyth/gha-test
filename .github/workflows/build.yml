@@ -12,8 +12,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/set-make-job-count
-  build-windows:
+    - run: echo ${{ env.MAKE_JOB_COUNT }}
+  build-ubuntu:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - uses: ./.github/actions/set-make-job-count
+    - run: echo ${{ env.MAKE_JOB_COUNT }}
